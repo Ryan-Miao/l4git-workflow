@@ -3,3 +3,4 @@ write two
 write three
 
 a new 1
+a new 2
