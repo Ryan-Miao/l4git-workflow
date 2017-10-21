@@ -1,4 +1,4 @@
-write one
+test rebase 是否会影响别人rite one
 write two
 write three
 
