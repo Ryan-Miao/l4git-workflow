@@ -1,3 +1,4 @@
+
 ---
 title: Git 工作流
 date: 2017-10-18 21:44:53
@@ -11,9 +12,12 @@ Categories:
 
 ![](https://camo.githubusercontent.com/c74535a35ba195450eabbfa44a95bc1cc8e89182/68747470733a2f2f7777772e61746c61737369616e2e636f6d2f6769742f696d616765732f7475746f7269616c732f636f6c6c61626f726174696e672f636f6d706172696e672d776f726b666c6f77732f676974666c6f772d776f726b666c6f772f30342e737667)
 
+
 # 前言
 
 一直在使用git做版本控制，也一直工作很顺利，直到和别人发生冲突的时候。这才注意到git 工作流并不是那么简单。比如，之前遇到的[清理历史](http://www.cnblogs.com/woshimrf/p/git-rebase.html)。百度到的资料很多，重复性也很多，但实践性操作很少，我很难直接理解其所表达的含义。直接望文生义经常得到错误的结论，只能用时间去检验真理了，不然看到的结果都是似懂非懂，最后还是一团糟。
+
+<!--more-->
 
 # 学习git工作流
 
@@ -593,8 +597,15 @@ git pull --rebase origin master
 ![](https://camo.githubusercontent.com/f1ce447510fcd8c37f0dcb0f677de4896907e607/68747470733a2f2f7777772e61746c61737369616e2e636f6d2f6769742f696d616765732f7475746f7269616c732f636f6c6c61626f726174696e672f636f6d706172696e672d776f726b666c6f77732f63656e7472616c697a65642d776f726b666c6f772f31312e737667)
 
 
+## 最终结果
+在都没提交到server的时候， 历史是分散在各个开发者的本地，但commit时间有先后。
+![](http://oe20lp6p0.bkt.clouddn.com/blog/2017/git/start.png)
 
+按照`rebase`的用法，提交前`rebase`一次，就可以使得一个feature的提交串联到一起
+![](http://oe20lp6p0.bkt.clouddn.com/blog/2017/git/end.png)
 
+最终在github的commit看起来也就是顺畅的多
+![](http://oe20lp6p0.bkt.clouddn.com/blog/2017/git/git-end.png)
 
 
 
@@ -615,6 +626,11 @@ git push
 git pull --rebase origin master
 ```
 
+>只要你把变基命令当作是在推送前清理提交使之整洁的工具，并且只在从未推送至共用仓库的提交上执行变基命令，就不会有事。 假如在那些已经被推送至共用仓库的提交上执行变基命令，并因此丢弃了一些别人的开发所基于的提交，那你就有大麻烦了，你的同事也会因此鄙视你。
+>
+>如果你或你的同事在某些情形下决意要这么做，请一定要通知每个人执行 git pull --rebase 命令，这样尽管不能避免伤痛，但能有所缓解。
+
+1. 绝对不要在公共(远程分支)上rebase，也就是说，如果没有必要就不要在github merge的时候选择rebase，而是用上述的办法，**在本地自己的分之推送前rebase**
 2. 绝对不可以在公共分支上reset，也不要用--force
 3. 单独功能的多次提交要学会合并提交，保持提交的简洁。
 4. 提交message尽量能概括修改内容。
@@ -622,6 +638,7 @@ git pull --rebase origin master
 
 
 # 参考来源
+- https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA
 - https://github.com/geeeeeeeeek/git-recipes/wiki/3.5-%E5%B8%B8%E8%A7%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%AF%94%E8%BE%83
 - https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2
 - https://segmentfault.com/q/1010000000430041
