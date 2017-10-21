@@ -1,1 +1,2 @@
 m new 1
+m new 2
