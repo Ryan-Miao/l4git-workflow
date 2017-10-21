@@ -1,4 +1,4 @@
-c write one
+test whether rebase will affact others  write one
 c write two
 c write three
 C finish sothing else.
