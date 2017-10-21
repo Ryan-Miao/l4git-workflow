@@ -4,3 +4,4 @@ c write three
 C finish sothing else.
 
 c new 1
+c new 2
