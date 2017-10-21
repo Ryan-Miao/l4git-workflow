@@ -2,3 +2,4 @@ write one b
 write two b
 
 b1
+b 2
