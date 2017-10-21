@@ -4,3 +4,4 @@ write three
 
 a new 1
 a new 2
+a new 3
