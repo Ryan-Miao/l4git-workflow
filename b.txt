@@ -1,2 +1,10 @@
 write one b
 write two b
+
+b1
+b 2
+b 3
+b 4
+
+b new 1
+b new 2
