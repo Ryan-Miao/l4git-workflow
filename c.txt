@@ -1,4 +1,5 @@
 test whether rebase will affact others  write one
+yes, rebase affact others. and others mast merge
 c write two
 c write three
 C finish sothing else.
